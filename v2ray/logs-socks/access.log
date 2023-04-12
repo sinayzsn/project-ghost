@@ -24127,3 +24127,11 @@
 2023/04/13 04:54:41 tcp:134.119.220.70:50504 accepted tcp:login.live.com:443 [direct]
 2023/04/13 04:54:41 tcp:134.119.220.70:50506 accepted tcp:4.bing.com:443 [direct]
 2023/04/13 04:54:53 tcp:5.188.210.13:42658 accepted tcp:5.188.210.13:80 [direct]
+2023/04/13 04:57:06 tcp:92.204.171.66:63965 rejected  proxy/socks: unknown Socks version: 71
+2023/04/13 04:57:43 tcp:5.188.210.13:46054 accepted tcp:5.188.210.13:80 [direct]
+2023/04/13 04:57:50 tcp:92.204.171.66:50793 rejected  proxy/socks: unknown Socks version: 67
+2023/04/13 04:58:18 tcp:92.204.171.66:53877 accepted tcp:5.45.94.247:80 [direct]
+2023/04/13 04:58:34 tcp:92.204.171.66:56093 accepted tcp:5.45.94.247:443 [direct]
+2023/04/13 04:59:09 tcp:92.204.171.66:59314 accepted tcp:142.250.186.106:80 [direct]
+2023/04/13 04:59:38 tcp:92.204.171.66:62351 accepted tcp:23.215.190.99:443 [direct]
+2023/04/13 05:02:14 tcp:5.188.210.13:39249 accepted tcp:5.188.210.13:80 [direct]
