@@ -1,0 +1,10 @@
+version: "3.6"
+service:
+  open:
+    image:
+    networks: 
+      - open
+    volumes:
+      - 
+    cap_add:
+      - NET_ADMIN

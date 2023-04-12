@@ -1,0 +1,34 @@
+{
+    "log": {
+        "loglevel": "debug",
+        "access": "/var/log/v2ray/access.log",
+        "error": "/var/log/v2ray/error.log"
+    },
+    "inbounds": [
+        {
+            "port": 9580,
+            "listen": "127.0.0.1",
+            "protocol": "socks",
+            "settings": {
+                "auth": "password",
+                "accounts": [
+                    {
+                        "user": "sina",
+                        "password": "SI1780na"
+                    }
+                ],
+                "udp": false,
+                "ip": "127.0.0.1"
+            }
+        }
+    ],
+    "outbounds": [
+        {
+            "protocol": "freedom",
+            "settings": {
+                "domainStrategy": "AsIs",
+                "userLevel": 0
+            }
+        }
+    ]
+}
