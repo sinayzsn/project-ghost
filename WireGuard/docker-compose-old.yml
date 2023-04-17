@@ -1,0 +1,29 @@
+version: "3"
+
+services:
+  wireguard:
+    image: linuxserver/wireguard
+    container_name: wireguard
+    cap_add:
+      - NET_ADMIN
+      - SYS_MODULE
+    volumes:
+      - ./:/config
+    ports:
+      - 2408:2408/udp
+    sysctls:
+      - net.ipv4.conf.all.src_valid_mark=1
+    restart: always
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=UTC
+      - SERVERURL=auto
+      - SERVERPORT=2408
+      - PEERS=1
+      - INTERNAL_SUBNET=172.16.0.2/32
+      - ALLOWEDIPS=0.0.0.0/0,::/0
+      - WGCF_CONFIG_FILE=/config/wgcf-profile.conf
+      - WGCF_ACCOUNT_FILE=/config/wgcf-account.toml
+      - WG_QUICK=1
+    # command: /bin/bash -c "wgcf register && wgcf generate && wg-quick up wgcf"
