@@ -10,7 +10,7 @@ services:
     - PUID=1000
     - PGID=1000
     # - TZ=Asia/Tehran
-    - SERVERURL="167.235.57.192" # domain optional, public IP is required at least
+    - SERVERURL=167.235.57.192 # domain optional, public IP is required at least
     - SERVERPORT=51820
     - PEERS=3 # number of peers
     - PEERDNS=auto #optional
