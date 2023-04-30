@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  socks:
+    image: teddysun/v2ray:latest
+    container_name:  socks-1
+    restart: always
+    volumes:
+      - ./socks.json:/etc/v2ray/config.json:ro
+      - ./logs-socks:/var/log/v2ray/:z
+    network_mode: host
+
+#     ports:
+#       - "10809:10809"
+#       - "7096:7096/udp"
+#     networks:
+#       - socks
+# networks:
+#   socks:
+#     external: false

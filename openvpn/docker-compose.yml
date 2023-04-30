@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+  openvpn:
+    cap_add:
+      - NET_ADMIN
+    image: kylemanna/openvpn
+    container_name: openvpn
+    ports:
+      - "1194:1194/udp"
+    volumes:
+      - "./openvpn-data:/etc/openvpn"
+    restart: always
+    environment:
+      - EASYRSA_BATCH=1
+      - EASYRSA_REQ_COUNTRY=US
+      - EASYRSA_REQ_PROVINCE=CA
+      - EASYRSA_REQ_CITY=SanFrancisco
+      - EASYRSA_REQ_ORG=OpenVPN
+      - EASYRSA_REQ_EMAIL=mail@example.com
+      - EASYRSA_REQ_OU=OpenVPN
+    command: sh -c "ovpn_genconfig -u udp://VPN.SERVERNAME.COM && \
+              ovpn_initpki && \
+              /usr/sbin/openvpn --config /etc/openvpn/openvpn.conf --auth-nocache --keepalive 10 120"
+
+  client:
+    image: kylemanna/openvpn
+    container_name: openvpn-client
+    volumes:
+      - "./openvpn-data:/etc/openvpn"
+    restart: always
+    environment:
+      - EASYRSA_BATCH=1
+    command: easyrsa build-client-full CLIENTNAME nopass && \
+             ovpn_getclient CLIENTNAME > CLIENTNAME.ovpn

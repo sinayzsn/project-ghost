@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  vmess:
+    image: teddysun/v2ray:latest
+    container_name: vmess
+    restart: always
+    volumes:
+      - ./vmess.json:/etc/v2ray/config.json
+      - ./vmess-cert:/etc/v2ray/
+      - ./logs-vmess:/var/log/v2ray:rw
+    ports:
+      - "10000:10000"
+    networks:
+      - vmess
+
+networks:
+  vmess:
+    external: false
